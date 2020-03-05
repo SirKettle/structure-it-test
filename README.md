@@ -13,6 +13,10 @@ I have created this in about 2-3hours and have not had any time to browser test 
 
 ---
 
+### To view a deployed version of the app:
+http://techtest.willthirkettle.co.uk/
+
+
 ### To run the app:
 
 ##### 1. Import node modules
