@@ -112,7 +112,9 @@ export const AddUserForm = ({ onAddUser, loadingStatus }) => {
           <Label htmlFor="favouritePet">{displayNames.favouritePet}</Label>
           <select id="favouritePet" name="favouritePet" value={favouritePet} onChange={onChange} ref={favouritePetEl}>
             {petOptions.map(pet => (
-              <option key={pet} label={pet} value={pet} />
+              <option key={pet} label={pet}>
+                {pet}
+              </option>
             ))}
           </select>
         </FormField>
