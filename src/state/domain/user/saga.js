@@ -21,7 +21,7 @@ export function* getUsers() {
   try {
     const data = tempGetUsers();
     // simulate loading
-    yield delay(800);
+    yield delay(500);
     yield put(actions.getUsersSuccess(data));
   } catch (error) {
     yield put(actions.getUsersError(error));
@@ -31,7 +31,7 @@ export function* getUsers() {
 export function* addUser(action) {
   try {
     // simulate posting new record
-    yield delay(350);
+    yield delay(150);
     const user = action.payload;
     if (isValid(user)) {
       yield put(actions.addUserSuccess(user));

@@ -80,7 +80,7 @@ const reducer = (state, { reset = false, name, value }) => {
 
 export const AddUserForm = ({ onAddUser, loadingStatus }) => {
   const [formValues, dispatchFormValues] = useReducer(reducer, initialFormValues);
-  const nameEl = useRef(null);
+  const favouritePetEl = useRef(null);
 
   const validation = useMemo(() => validate(formValues), [formValues]);
   const isValid = useMemo(() => Object.keys(validation).length === 0, [validation]);
@@ -94,7 +94,7 @@ export const AddUserForm = ({ onAddUser, loadingStatus }) => {
       if (loadingStatus !== LOADING_STATUS.PENDING) {
         onAddUser(formValues);
         resetFormValues();
-        nameEl.current.focus();
+        favouritePetEl.current.focus();
       }
       e.preventDefault();
     },
@@ -109,7 +109,7 @@ export const AddUserForm = ({ onAddUser, loadingStatus }) => {
         <Legend as="legend">New user form</Legend>
         <FormField>
           <Label htmlFor="favouritePet">{displayNames.favouritePet}</Label>
-          <select id="favouritePet" name="favouritePet" value={favouritePet} onChange={onChange}>
+          <select id="favouritePet" name="favouritePet" value={favouritePet} onChange={onChange} ref={favouritePetEl}>
             <option label="Select a favourite pet" />
             {petOptions.map(pet => (
               <option key={pet} label={pet} value={pet} />
@@ -118,7 +118,7 @@ export const AddUserForm = ({ onAddUser, loadingStatus }) => {
         </FormField>
         <FormField>
           <Label htmlFor="name">{displayNames.name}</Label>
-          <input id="name" name="name" type="text" onChange={onChange} value={name} ref={nameEl} />
+          <input id="name" name="name" type="text" onChange={onChange} value={name} />
         </FormField>
         <FormField>
           <Label htmlFor="dateOfBirth">{displayNames.dateOfBirth}</Label>
