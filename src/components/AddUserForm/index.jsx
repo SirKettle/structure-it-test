@@ -49,6 +49,7 @@ const Label = styled.label`
 `;
 
 const SubmitButton = styled.input`
+  margin-top: 2em;
   display: block;
   width: auto;
   align-self: center;
@@ -110,7 +111,6 @@ export const AddUserForm = ({ onAddUser, loadingStatus }) => {
         <FormField>
           <Label htmlFor="favouritePet">{displayNames.favouritePet}</Label>
           <select id="favouritePet" name="favouritePet" value={favouritePet} onChange={onChange} ref={favouritePetEl}>
-            <option label="Select a favourite pet" />
             {petOptions.map(pet => (
               <option key={pet} label={pet} value={pet} />
             ))}
